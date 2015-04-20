@@ -34,7 +34,17 @@ https://mutantes.herokuapp.com/validate/
 
 ##Las solicitudes se deben de hacer por POST por ejemplo: 
 ```
+Vertical 
+
 curl -X POST -H "Content-Type: application/json" -d '{"dna": "[['C', 'A', 'G', 'C', 'C', 'A'],['C', 'C', 'G', 'T', 'G', 'C'],['C', 'T', 'C', 'T', 'T', 'T'],['C', 'G', 'A', 'C', 'G', 'G'],['G', 'C', 'G', 'T', 'C', 'A'],['T', 'C', 'A', 'C', 'T', 'G']]"}' https://mutantes.herokuapp.com/validate/
+
+Horizontal 
+
+curl -X POST -H "Content-Type: application/json" -d '{"dna": "[['G', 'G', 'G', 'G', 'C', 'A'],['C', 'C', 'G', 'T', 'G', 'C'],['C', 'T', 'C', 'T', 'T', 'T'],['C', 'G', 'A', 'C', 'G', 'G'],['G', 'C', 'G', 'T', 'C', 'A'],['T', 'C', 'A', 'C', 'T', 'G']]"}' https://mutantes.herokuapp.com/validate/
+Diagonal
+
+curl -X POST -H "Content-Type: application/json" -d '{"dna": "[['A', 'A', 'G', 'C', 'C', 'A'],['C', 'A', 'G', 'T', 'G', 'C'],['T', 'T', 'A', 'T', 'T', 'T'],['A', 'G', 'A', 'A', 'G', 'G'],['G', 'C', 'G', 'T', 'C', 'A'],['T', 'C', 'A', 'C', 'T', 'G']]"}' https://mutantes.herokuapp.com/validate/
+
 ```
 ####El servicio devuelve el mismo objeto enviado, la matriz de calculo y un par de llave valor de nombre "kind" indicando si es un MUTANTE, un posible HUMANO ó ERROR DE ENTRADA
 ```
