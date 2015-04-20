@@ -9,14 +9,15 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.mercadolibre.model.DNABase;
 import com.mercadolibre.model.ProcesedDNA;
 import com.mercadolibre.service.DNAService;
+import com.mercadolibre.service.IDNAService;
 
 @Controller(value="mutantController")
 public class MutantController {
 
 	@Autowired
-	DNAService dnaService = null;
+	IDNAService dnaService = null;
 	
-	public void setDnaService(DNAService dnaService) {
+	public void setDnaService(IDNAService dnaService) {
 		this.dnaService = dnaService;
 	}
 
