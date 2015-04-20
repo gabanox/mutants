@@ -5,7 +5,7 @@ import java.util.Map;
 
 import org.springframework.stereotype.Component;
 
-@Component(value="mutant")
+@Component(value="mutantModel")
 public class Mutant {
 
 	public boolean isMutant(Map m, String[][] dna){

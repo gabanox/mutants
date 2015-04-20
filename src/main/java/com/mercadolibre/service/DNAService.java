@@ -8,19 +8,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.mercadolibre.model.DNABase;
-import com.mercadolibre.model.IMutant;
-import com.mercadolibre.model.ProcesedDNA;
+import com.mercadolibre.model.Mutant;
 
 @Service(value="DNAService")
 public class DNAService implements IDNAService {
 
 	@Autowired
-	IGraphService graphService = null;
+	GraphService graphService = null;
 	
 	@Autowired
-	IMutant mutantModel = null;
+	Mutant mutantModel = null;
 	
-	public void setMutantModel(IMutant mutantModel) {
+	public void setMutantModel(Mutant mutantModel) {
 		this.mutantModel = mutantModel;
 	}
 
@@ -28,20 +27,26 @@ public class DNAService implements IDNAService {
 		this.graphService = graphService;
 	}
 
-	public ProcesedDNA processDna(DNABase dna) {
-		ProcesedDNA procesedDNA = new ProcesedDNA();
+	public DNABase processDna(DNABase dna) {
 		
-		int[][] a = graphService.generateAdjacencyMatrix(procesedDNA.getData());
-		Map<String, List<Integer>> m = new HashMap<String, List<Integer>>();
-		m = graphService.calculateMatrixDegrees(a);
-		boolean isMutant = mutantModel.isMutant(m,procesedDNA.getData());
-		
-		if(isMutant){
-			procesedDNA.setKind("MUTANTE");
+		int[][] a = graphService.generateAdjacencyMatrix(dna.getData());
+		Map<String, List<Integer>> m;
+		boolean isMutant = false;
+		if(a != null){
+			m = new HashMap<String, List<Integer>>();
+			m = graphService.calculateMatrixDegrees(a);
+			isMutant = mutantModel.isMutant(m,dna.getData());
+			
+			if(isMutant){
+				dna.setKind("MUTANTE");
+			}else {
+				dna.setKind("POSIBLEMENTE HUMANO");
+			}
 		}else {
-			procesedDNA.setKind("POSIBLEMENTE HUMANO");
+			dna.setKind("ERORR DE ENTRADA");
 		}
-		return procesedDNA;
+		
+		return dna;
 	}
 
 }
