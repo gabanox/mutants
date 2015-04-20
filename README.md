@@ -1,6 +1,6 @@
 # Identificación de Mutantes
 
-### Utilice como modelo basado en Teoría de Grafos utilizando una Matriz de Ajacencia para mejorar el performance al momento de realizar las combinaciones de matrices de NxN. Permitiendo así tener tiempos de OlogN independientemente del tamaño de los datos de entrada.
+### Utilice un modelo basado en Teoría de Grafos utilizando una Matriz de Adjacencia para mejorar el performance al momento de realizar las combinaciones de matrices de NxN. Permitiendo así tener tiempos de OlogN independientemente del tamaño de los datos de entrada.
 
 Se pueden indentificar patrones de bases nigrogenadas de ADN de acuerdo a las siguientes matrices (Vertical, Horizontal y Diagonalmente)
 
